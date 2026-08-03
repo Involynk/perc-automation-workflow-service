@@ -18,6 +18,7 @@
     "test": "npm run test --workspaces",
     "test:bus": "npx ts-node scripts/test-bus-orchestration.ts",
     "test:notification": "npx ts-node scripts/test-notification-engine.ts",
+    "test:workflow": "npx ts-node scripts/test-workflow-engine.ts",
     "test:supabase": "npx ts-node scripts/test-supabase-connection-and-seed.ts",
     "test:mock": "npx ts-node packages/mock-orchestrator/src/run.ts",
     "lint": "npm run lint --workspaces"
