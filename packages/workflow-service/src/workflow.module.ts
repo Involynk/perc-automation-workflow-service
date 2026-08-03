@@ -6,8 +6,10 @@ import {
   Lead, WorkflowInstance, TimelineEvent, PromiseEntity, Notification, User,
   Channel, Conversation, Message, WorkflowHistory, EventType, Course, LeadCourse, Setting,
 } from '@perc/shared';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 import { PromiseEngine } from './engine/promise.engine';
 import { RoutingEngine } from './engine/routing.engine';
+import { WorkflowEngineService } from './engine/workflow.engine.service';
 import { WorkflowController } from './workflow.controller';
 
 const entities = [
@@ -19,6 +21,7 @@ const entities = [
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '../../.env' }),
+    EventEmitterModule.forRoot(),
     ScheduleModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'sqljs',
@@ -30,6 +33,6 @@ const entities = [
     TypeOrmModule.forFeature(entities),
   ],
   controllers: [WorkflowController],
-  providers: [PromiseEngine, RoutingEngine],
+  providers: [PromiseEngine, RoutingEngine, WorkflowEngineService],
 })
 export class WorkflowModule {}
