@@ -8,12 +8,12 @@ export const workflowMachine = setup({
     events: {} as { type: string, payload?: any },
   },
   guards: {
-    isPositiveReply: ({ context, event }) => isPositiveReply(context as any, event as any),
-    isNegativeReply: ({ context, event }) => isNegativeReply(context as any, event as any),
-    hasMaxFollowUps: ({ context, event }) => hasMaxFollowUps(context as any, event as any),
+    isPositiveReply: ({ context, event }: any) => isPositiveReply(context as any, event as any),
+    isNegativeReply: ({ context, event }: any) => isNegativeReply(context as any, event as any),
+    hasMaxFollowUps: ({ context, event }: any) => hasMaxFollowUps(context as any, event as any),
   },
   actions: {
-    logAction: ({ context, event }, params: { actionName: string }) => {
+    logAction: ({ context, event }: any, params: { actionName: string }) => {
     }
   }
 }).createMachine({
