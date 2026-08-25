@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build:shared": "node node_modules/typescript/bin/tsc -p packages/shared/tsconfig.json",
+    "build:shared": "node node_modules/typescript/bin/tsc -p packages/shared",
     "build": "npm run build:shared && node node_modules/@nestjs/cli/bin/nest.js build workflow-service",
     "start": "node node_modules/@nestjs/cli/bin/nest.js start workflow-service",
     "start:prod": "node dist/packages/workflow-service/src/main",
@@ -14,16 +14,13 @@
     "test": "node node_modules/jest/bin/jest.js --passWithNoTests"
   },
   "devDependencies": {
-    "@nestjs/cli": "^11.0.24",
     "@nestjs/testing": "^11.1.28",
     "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
-    "jest": "^30.4.2",
-    "ts-jest": "^29.4.12",
-    "ts-node": "^10.9.2",
-    "typescript": "~5.7.0"
+    "jest": "^30.4.2"
   },
   "dependencies": {
+    "@nestjs/cli": "^11.0.24",
     "@nestjs/common": "^11.1.28",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.1.28",
@@ -33,6 +30,9 @@
     "@supabase/supabase-js": "^2.110.8",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.0",
     "typeorm": "^0.3.20",
     "xstate": "^5.19.2"
   }
